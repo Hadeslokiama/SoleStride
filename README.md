@@ -1,3 +1,33 @@
+## Group Members 
+
+* **Daradar, Colin James (Hadeslokiama)** 
+* **Cruz, Aryanne Chelsea (seaariii)**
+* **Paglas, Datu Morris Alhamsa (Lexaxd123)**
+* **Deglison, Rolie Mar (Rolie2026)**
+
+| Member | Module | Files |
+|---|---|---|
+| Colin (Lead) | DB schema, integration, admin core | `schema.sql`, `db.php`, `functions.php`, `admin/dashboard.php`, `admin/manage-users.php` |
+| Aryanne | Auth system | `auth/register.php`, `auth/login.php`, `auth/verify-email.php`, `auth/logout.php` |
+| Datu | Buyer storefront | `index.php`, `product-details.php`, `cart.php`, `checkout.php` |
+| Rolie | Admin inventory + audit | `admin/inventory.php`, `admin/process-inventory.php`, `admin/audit-log.php`, `about.php` |
+
+---
+ 
+# PR Rule
+ 
+Test before push. Broken code stays local.
+ 
+1. Run it. Click every button your code touches.
+2. No errors in browser or terminal.
+3. No leftover `var_dump`, `die()`, `echo` test junk.
+4. Works with empty fields, wrong email, wrong password. Not just happy path.
+5. Pull `main` first. Fix conflicts before PR.
+6. PR needs 1 approval before merge.
+Broken push = redo it. No exceptions.
+
+---
+
 # SoleStride 
 
 SoleStride is a dedicated footwear e-commerce platform built natively using **PHP** and **MySQL**. This project fulfills an academic requirement, demonstrating robust backend form validation, database management, user authentication, and secure session handling without the use of monolithic PHP frameworks. 
@@ -145,10 +175,3 @@ As per the academic requirements, this project strictly uses native PHP function
 * **SQL Injection Prevention:** Implementation of Prepared Statements (`mysqli_prepare` or PDO) for all database operations.
 * **Password Hashing:** Utilizing PHP's native `password_hash()` and `password_verify()` for secure credentials storage.
 * **Session Management:** Secure admin and buyer sessions to prevent unauthorized page access (e.g., protecting the admin dashboard from unauthenticated users).
-
----
-
-## Group Members 
-
-* **Daradar, Colin James (Hadeslokiama)** 
-* **Cruz, Aryanne Chelsea (seaariii)**
