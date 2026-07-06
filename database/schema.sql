@@ -112,3 +112,10 @@ CREATE INDEX idx_cart_user ON cart(user_id);
 CREATE INDEX idx_cart_session ON cart(session_id);
 CREATE INDEX idx_orders_user ON orders(user_id);
 CREATE INDEX idx_audit_admin ON audit_logs(admin_id);
+
+-- ============================================================
+-- Log in using admin@solestride.local and ChangeMe123!
+-- ============================================================
+INSERT INTO admins (full_name, email, password_hash, role) VALUES
+('Default Admin', 'admin@solestride.local', '$2y$10$sBIkgPPmuRCWjpl2oSy/lef7wDqKM0js/EbHEZBOOssRIUZFeeoGG', 'super_admin');
+
