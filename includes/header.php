@@ -8,13 +8,13 @@ start_secure_session();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoleStride</title>
+    <title>Unbound</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
     <nav class="navbar">
-        <a href="/index.php" class="logo">SoleStride</a>
+        <a href="/index.php" class="logo">Unbound</a>
         <ul class="nav-links">
             <li><a href="/index.php">Shop</a></li>
             <li><a href="/about.php">About</a></li>

@@ -28,9 +28,9 @@ Broken push = redo it. No exceptions.
 
 ---
 
-# SoleStride 
+# Unbound 
 
-SoleStride is a dedicated footwear e-commerce platform built natively using **PHP** and **MySQL**. This project fulfills an academic requirement, demonstrating robust backend form validation, database management, user authentication, and secure session handling without the use of monolithic PHP frameworks. 
+Unbound is a dedicated apparel e-commerce platform built natively using **PHP** and **MySQL**. This project fulfills an academic requirement, demonstrating robust backend form validation, database management, user authentication, and secure session handling without the use of monolithic PHP frameworks. 
 
 The application is split into two core modules: a **Buyer Storefront** (complete with registration, email confirmation, categorized shopping, and checkout) and a secure **Seller/Admin Dashboard** (featuring inventory controls, role management, and system audit logs).
 
@@ -44,7 +44,7 @@ The application is split into two core modules: a **Buyer Storefront** (complete
 ## File Structure
 
 ```text
-SoleStride/
+Unbound/
 ├── admin/                         # Admin/Seller Dashboard Module
 │   ├── dashboard.php              # Admin landing page (inventory reports overview)
 │   ├── inventory.php              # View and manage products (CRUD triggers)
@@ -55,7 +55,7 @@ SoleStride/
 │   ├── css/
 │   │   └── style.css              # Custom CSS / Tailwind output
 │   ├── images/
-│   │   └── products/              # Footwear upload images (Sneakers, Boots, etc.)
+│   │   └── products/              # Apparel upload images (Tops, Bottoms, etc.)
 │   └── js/
 │       └── main.js                # General frontend JavaScript
 ├── config/                        # Configuration files
@@ -131,12 +131,12 @@ The MySQL database consists of the following foundational tables managed entirel
 ### Steps
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Hadeslokiama/SoleStride.git]
-   cd SoleStride
+   git clone [https://github.com/Hadeslokiama/Unbound.git]
+   cd Unbound
 
 2. **Database Setup:**
    * Open phpMyAdmin or your preferred MySQL client.
-   * Create a new database named `solestride_db`.
+   * Create a new database named `unbound_db`.
    * Import the provided SQL dump file found in the `/database` directory:
      ```bash
      # Or import via phpMyAdmin GUI
@@ -151,7 +151,7 @@ The MySQL database consists of the following foundational tables managed entirel
      $host = "localhost";
      $user = "root";
      $pass = "";
-     $dbname = "solestride_db";
+     $dbname = "Unbound_db";
 
      $conn = mysqli_connect($host, $user, $pass, $dbname);
 
@@ -164,7 +164,7 @@ The MySQL database consists of the following foundational tables managed entirel
 4. **Run the Project Locally:**
    * Move the project folder into your local server's root directory (e.g., `htdocs` for XAMPP, `www` for WampServer).
    * Start your Apache and MySQL modules via your control panel.
-   * Navigate to `http://localhost/SoleStride` in your web browser.
+   * Navigate to `http://localhost/Unbound` in your web browser.
 
 ---
 

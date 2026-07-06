@@ -9,13 +9,13 @@ require_admin();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoleStride Admin</title>
+    <title>Unbound Admin</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="admin-body">
 <div class="admin-layout">
     <aside class="admin-sidebar">
-        <h2 class="admin-logo">SoleStride Admin</h2>
+        <h2 class="admin-logo">Unbound Admin</h2>
         <ul class="admin-nav">
             <li><a href="/admin/dashboard.php">Dashboard</a></li>
             <li><a href="/admin/inventory.php">Inventory</a></li>

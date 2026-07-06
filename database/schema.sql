@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS solestride_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE solestride_db;
+CREATE DATABASE IF NOT EXISTS unbound_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE unbound_db;
 
 -- ============================================================
 -- USERS (Buyers)
@@ -41,7 +41,7 @@ CREATE TABLE products (
     name VARCHAR(150) NOT NULL,
     description TEXT,
     price DECIMAL(10,2) NOT NULL,
-    category ENUM('Sneakers', 'Boots', 'Formal', 'Athletic') NOT NULL,
+    category ENUM('Tops', 'Bottoms', 'Outerwear', 'Accessories') NOT NULL,
     stock_quantity INT UNSIGNED NOT NULL DEFAULT 0,
     image_path VARCHAR(255) DEFAULT NULL,
     is_active TINYINT(1) NOT NULL DEFAULT 1,
@@ -114,8 +114,8 @@ CREATE INDEX idx_orders_user ON orders(user_id);
 CREATE INDEX idx_audit_admin ON audit_logs(admin_id);
 
 -- ============================================================
--- Log in using admin@solestride.local and ChangeMe123!
+-- Log in using admin@unbound.local and ChangeMe123!
 -- ============================================================
 INSERT INTO admins (full_name, email, password_hash, role) VALUES
-('Default Admin', 'admin@solestride.local', '$2y$10$sBIkgPPmuRCWjpl2oSy/lef7wDqKM0js/EbHEZBOOssRIUZFeeoGG', 'super_admin');
+('Default Admin', 'admin@unbound.local', '$2y$10$sBIkgPPmuRCWjpl2oSy/lef7wDqKM0js/EbHEZBOOssRIUZFeeoGG', 'super_admin');
 

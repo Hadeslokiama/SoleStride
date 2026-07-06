@@ -7,7 +7,7 @@
             and processes no real payments.
         </p>
         <p class="group-info">
-            SoleStride &copy; <?= date('Y') ?> — Group Project by Daradar, Cruz, Paglas, Deglison
+            Unbound &copy; <?= date('Y') ?> — Group Project by Daradar, Cruz, Paglas, Deglison
         </p>
     </div>
 </footer>
