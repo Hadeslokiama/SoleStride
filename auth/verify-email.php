@@ -65,7 +65,7 @@ if ($token !== '') {
 require_once __DIR__ . '/../includes/header.php';
 ?>
 
-<section class="auth-section">
+<section class="auth-section verification-section">
     <h1>Email Verification</h1>
 
     <div class="message <?= $status === 'success' ? 'success-message' : 'error-message' ?>">

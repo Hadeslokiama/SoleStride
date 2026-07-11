@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($contact_number === '') {
         $errors[] = 'Contact number is required.';
     } elseif (!validate_contact_number($contact_number)) {
-        $errors[] = 'Contact number must follow 09XXXXXXXXX or +639XXXXXXXXX format.';
+        $errors[] = 'Contact number must follow 09XXXXXXXXX format.';
     }
 
     if ($password === '') {
@@ -165,7 +165,10 @@ require_once __DIR__ . '/../includes/header.php';
                 id="contact_number"
                 name="contact_number"
                 value="<?= htmlspecialchars($contact_number, ENT_QUOTES, 'UTF-8') ?>"
-                placeholder="09XXXXXXXXX or +639XXXXXXXXX"
+                placeholder="09XXXXXXXXX"
+                inputmode="numeric"
+                maxlength="11"
+                pattern="09[0-9]{9}"
                 required
             >
         </div>
@@ -181,7 +184,7 @@ require_once __DIR__ . '/../includes/header.php';
             <input type="password" id="confirm_password" name="confirm_password" required>
         </div>
 
-        <button type="submit">Register</button>
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
 
     <p class="auth-link">

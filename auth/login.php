@@ -143,7 +143,7 @@ require_once __DIR__ . '/../includes/header.php';
             <input type="password" id="password" name="password" required>
         </div>
 
-        <button type="submit">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 
     <p class="auth-link">

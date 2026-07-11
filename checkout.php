@@ -98,48 +98,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<main class="site-main">
-    <div class="checkout-container" style="max-width: 600px; margin: 0 auto; padding: 20px;">
+<section class="checkout-container">
         <h1>Checkout</h1>
-        
+
         <?php if ($order_success): ?>
-            <div class="alert alert-success" style="background: #e6f4ea; padding: 15px; border-radius: 4px; border: 1px solid #137333; margin-top: 20px;">
+            <div class="alert alert-success">
                 <h3>Order Placed Successfully!</h3>
                 <p>Your minimalist apparel procurement request has been finalized.</p>
-                <a href="<?= app_url('index.php') ?>" class="btn btn-primary" style="display:inline-block; margin-top:10px;">Return to Shop</a>
+                <a href="<?= app_url('index.php') ?>" class="btn btn-primary">Return to Shop</a>
             </div>
         <?php else: ?>
             <?php if (!empty($error_msg)): ?>
-                <div class="alert alert-danger" style="color:red; background:#fce8e6; padding:10px; border-radius:4px; margin-bottom:15px;"><?php echo htmlspecialchars($error_msg); ?></div>
+                <div class="alert alert-danger"><?php echo htmlspecialchars($error_msg); ?></div>
             <?php endif; ?>
 
-            <div class="order-summary-box" style="background:#f9f9f9; padding:20px; border: 1px solid #ddd; margin-bottom:20px; border-radius: 4px;">
-                <h3 style="margin-top: 0;">Order Summary</h3>
-                <ul style="list-style: none; padding: 0;">
+            <div class="order-summary-box">
+                <h3>Order Summary</h3>
+                <ul>
                     <?php foreach ($cart_items as $item): ?>
-                        <li style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <li>
                             <span><?php echo htmlspecialchars($item['name']); ?> (x<?php echo (int)$item['quantity']; ?>)</span>
                             <span>$<?php echo number_format($item['subtotal'], 2); ?></span>
                         </li>
                     <?php endforeach; ?>
                 </ul>
-                <hr style="border: 0; border-top: 1px solid #ccc; margin: 15px 0;">
-                <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
+                <div class="summary-total">
                     <span>Total Owed:</span>
                     <span>$<?php echo number_format($total_amount, 2); ?></span>
                 </div>
             </div>
 
-            <form action="<?= app_url('checkout.php') ?>" method="POST">
-                <div class="form-group" style="margin-bottom: 15px;">
-                    <label for="shipping_address" style="display:block; font-weight:bold; margin-bottom:5px;">Shipping Address:</label>
-                    <textarea id="shipping_address" name="shipping_address" rows="4" style="width:100%; padding:10px; box-sizing:border-box;" required><?php echo htmlspecialchars($user_address); ?></textarea>
+            <form action="<?= app_url('checkout.php') ?>" method="POST" class="checkout-form">
+                <div class="form-group">
+                    <label for="shipping_address">Shipping Address</label>
+                    <textarea id="shipping_address" name="shipping_address" rows="4" required><?php echo htmlspecialchars($user_address); ?></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:100%; padding:12px; font-size:16px; cursor:pointer;">Complete Purchase</button>
+                <button type="submit" class="btn btn-primary">Complete Purchase</button>
             </form>
         <?php endif; ?>
-    </div>
-</main>
+</section>
 
 <?php
 require_once 'includes/footer.php';

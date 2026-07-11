@@ -32,21 +32,9 @@ require_once __DIR__ . '/includes/header.php';
         and excellent customer service.
     </p>
 
-    <h2>Project Features</h2>
-
-    <ul>
-        <li>User Registration and Login</li>
-        <li>Email Verification</li>
-        <li>Product Catalog</li>
-        <li>Shopping Cart</li>
-        <li>Checkout System</li>
-        <li>Admin Inventory Management</li>
-        <li>Audit Logging</li>
-    </ul>
-
     <h2>Development Team</h2>
 
-    <table class="admin-table">
+    <table class="admin-table team-table">
 
         <thead>
 

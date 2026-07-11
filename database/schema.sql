@@ -114,8 +114,8 @@ CREATE INDEX idx_orders_user ON orders(user_id);
 CREATE INDEX idx_audit_admin ON audit_logs(admin_id);
 
 -- ============================================================
--- Log in using admin@unbound.local and ChangeMe123!
+-- Log in using admin@unbound.local and Admin123!
 -- ============================================================
 INSERT INTO admins (full_name, email, password_hash, role) VALUES
-('Default Admin', 'admin@unbound.local', '$2y$10$sBIkgPPmuRCWjpl2oSy/lef7wDqKM0js/EbHEZBOOssRIUZFeeoGG', 'super_admin');
+('Default Admin', 'admin@unbound.local', '$2y$12$8bDwjG00OSAgri7hLuQEYOotJkfpWl9LXyL20wsIGjVvGP3DW8tl2', 'super_admin');
 

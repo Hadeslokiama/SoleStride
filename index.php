@@ -25,9 +25,65 @@ if ($category !== '') {
 }
 ?>
 
-<main class="site-main">
-    <section class="products-grid-container">
-        <h2>Our Collection<?php echo $category !== '' ? ' - ' . htmlspecialchars($category) : ''; ?></h2>
+<section class="storefront">
+    <div class="storefront-hero">
+        <div class="hero-title-block">
+            <p class="kicker">New line / open form</p>
+            <h1>
+                Wear without permission.<a href="#collection" class="btn btn-primary hero-cta">Shop Now</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="kinetic-marquee" aria-label="Unbound store cues">
+        <div class="kinetic-track">
+            <span>Sharp essentials</span>
+            <span>Direct movement</span>
+            <span>No permission</span>
+            <span>Clean silhouettes</span>
+            <span aria-hidden="true">Sharp essentials</span>
+            <span aria-hidden="true">Direct movement</span>
+            <span aria-hidden="true">No permission</span>
+            <span aria-hidden="true">Clean silhouettes</span>
+        </div>
+    </div>
+
+    <section class="signal-grid" aria-label="Unbound principles">
+        <article class="signal-card">
+            <span class="signal-number" aria-hidden="true">01</span>
+            <h2>Essential Fits</h2>
+            <p>Browse sharp tops, bottoms, outerwear, and accessories made for everyday wear.</p>
+        </article>
+        <article class="signal-card">
+            <span class="signal-number" aria-hidden="true">02</span>
+            <h2>Cart Ready</h2>
+            <p>Add pieces fast, review quantities, and keep your selected apparel organized.</p>
+        </article>
+        <article class="signal-card">
+            <span class="signal-number" aria-hidden="true">03</span>
+            <h2>Checkout Clean</h2>
+            <p>Complete orders with clear totals, delivery details, and secure account access.</p>
+        </article>
+    </section>
+
+    <div class="kinetic-marquee kinetic-marquee-muted" aria-label="Catalog categories">
+        <div class="kinetic-track kinetic-track-reverse">
+            <span>Tops</span>
+            <span>Bottoms</span>
+            <span>Outerwear</span>
+            <span>Accessories</span>
+            <span aria-hidden="true">Tops</span>
+            <span aria-hidden="true">Bottoms</span>
+            <span aria-hidden="true">Outerwear</span>
+            <span aria-hidden="true">Accessories</span>
+        </div>
+    </div>
+
+    <section id="collection" class="products-grid-container">
+        <div class="section-heading">
+            <h2>Our Collection<?php echo $category !== '' ? ' - ' . htmlspecialchars($category) : ''; ?></h2>
+            <span>Built for daily motion</span>
+        </div>
         <div class="products-grid">
             <?php if ($result && mysqli_num_rows($result) > 0): ?>
                 <?php while ($product = mysqli_fetch_assoc($result)): ?>
@@ -36,11 +92,11 @@ if ($category !== '') {
                         <div class="product-info">
                             <h3><?php echo htmlspecialchars($product['name']); ?></h3>
                             <p class="product-price">$<?php echo number_format($product['price'], 2); ?></p>
-                            
-                            <div class="product-actions" style="display: flex; gap: 10px; margin-top: 10px;">
+
+                            <div class="product-actions">
                                 <a href="<?php echo app_url('product-details.php?id=' . (int)$product['id']); ?>" class="btn btn-secondary">View Details</a>
 
-                                <form action="<?php echo app_url('cart.php'); ?>" method="POST" style="display:inline;">
+                                <form action="<?php echo app_url('cart.php'); ?>" method="POST">
                                     <input type="hidden" name="action" value="add">
                                     <input type="hidden" name="product_id" value="<?php echo (int)$product['id']; ?>">
                                     <input type="hidden" name="quantity" value="1">
@@ -51,11 +107,11 @@ if ($category !== '') {
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>
-                <p>No apparel options are available at this moment.</p>
+                <p class="empty-state">No apparel options are available at this moment.</p>
             <?php endif; ?>
         </div>
     </section>
-</main>
+</section>
 
 <?php
 if ($stmt) {

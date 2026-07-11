@@ -26,41 +26,40 @@ if ($product_id > 0) {
 }
 
 if (!$product) {
-    echo "<main class='site-main'><p>The requested product is unavailable.</p><a href='" . app_url('index.php') . "'>Back to store</a></main>";
+    echo "<section class='empty-state'><p>The requested product is unavailable.</p><a class='btn btn-primary' href='" . app_url('index.php') . "'>Back to store</a></section>";
     require_once 'includes/footer.php';
     exit;
 }
 ?>
 
-<main class="site-main">
-    <div class="product-details-container" style="display: flex; gap: 40px; margin-top: 20px;">
-        <div class="product-image-panel" style="flex: 1;">
-            <img src="<?php echo htmlspecialchars(app_url($product['image_path'])); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" style="max-width:100%; height:auto;">
+<section class="product-details-container">
+        <div class="product-image-panel">
+            <img src="<?php echo htmlspecialchars(app_url($product['image_path'])); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
         </div>
-        <div class="product-info-panel" style="flex: 1;">
+        <div class="product-info-panel">
+            <p class="kicker">Product file</p>
             <h1><?php echo htmlspecialchars($product['name']); ?></h1>
-            <p class="price" style="font-size: 24px; font-weight: bold; margin: 15px 0;">$<?php echo number_format($product['price'], 2); ?></p>
-            <p class="description" style="line-height: 1.6; margin-bottom: 25px;"><?php echo htmlspecialchars($product['description']); ?></p>
+            <p class="price">$<?php echo number_format($product['price'], 2); ?></p>
+            <p class="description"><?php echo htmlspecialchars($product['description']); ?></p>
 
             <?php if ((int)$product['stock_quantity'] > 0): ?>
                 <form action="<?php echo app_url('cart.php'); ?>" method="POST" class="add-to-cart-form">
                     <input type="hidden" name="action" value="add">
                     <input type="hidden" name="product_id" value="<?php echo (int)$product['id']; ?>">
                     
-                    <div style="margin-bottom: 15px;">
-                        <label for="quantity" style="font-weight: bold; display: block; margin-bottom: 5px;">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="<?php echo (int)$product['stock_quantity']; ?>" style="padding: 8px; width: 80px;" required>
+                    <div class="form-group quantity-field">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="<?php echo (int)$product['stock_quantity']; ?>" required>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="padding: 10px 20px;">Add to Cart</button>
+
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
                 </form>
-                <p style="color: green; font-size: 14px; margin-top: 10px;">In Stock (<?php echo (int)$product['stock_quantity']; ?> units available)</p>
+                <p class="stock-note">In Stock (<?php echo (int)$product['stock_quantity']; ?> units available)</p>
             <?php else: ?>
-                <button class="btn btn-disabled" style="background: #ccc; cursor: not-allowed; padding: 10px 20px;" disabled>Out of Stock</button>
+                <button class="btn btn-disabled" disabled>Out of Stock</button>
             <?php endif; ?>
         </div>
-    </div>
-</main>
+</section>
 
 <?php
 require_once 'includes/footer.php';

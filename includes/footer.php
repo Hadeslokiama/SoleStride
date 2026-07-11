@@ -7,9 +7,23 @@
             and processes no real payments.
         </p>
         <p class="group-info">
-            Unbound &copy; <?= date('Y') ?> — Group Project by Daradar, Cruz, Paglas, Deglison
+            Unbound &copy; <?= date('Y') ?>
         </p>
     </div>
 </footer>
+<script>
+    (function () {
+        const buttons = document.querySelectorAll('[data-theme-toggle]');
+        const root = document.documentElement;
+
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const nextTheme = root.getAttribute('data-theme') === 'unbound-light' ? 'unbound-dark' : 'unbound-light';
+                root.setAttribute('data-theme', nextTheme);
+                localStorage.setItem('unbound-theme', nextTheme);
+            });
+        });
+    })();
+</script>
 </body>
 </html>

@@ -40,8 +40,8 @@ function validate_email(string $email): bool
 
 function validate_contact_number(string $number): bool
 {
-    // Philippine mobile format: 09XXXXXXXXX or +639XXXXXXXXX
-    return (bool) preg_match('/^(09\d{9}|\+639\d{9})$/', $number);
+    // Philippine mobile format: 09XXXXXXXXX only.
+    return (bool) preg_match('/^09\d{9}$/', $number);
 }
 
 function validate_password_strength(string $password): bool

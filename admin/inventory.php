@@ -167,7 +167,7 @@ if ($stmt) {
                 <img
                     src="<?= htmlspecialchars(app_url($edit_product['image_path']), ENT_QUOTES, 'UTF-8') ?>"
                     alt="Current product image"
-                    style="max-width:140px; height:auto; border-radius:8px; margin-top:8px;"
+                    class="admin-product-preview"
                 >
             </p>
         <?php endif; ?>
@@ -178,7 +178,7 @@ if ($stmt) {
             </button>
 
             <?php if ($edit_product): ?>
-                <a href="<?= app_url('admin/inventory.php') ?>" style="margin-left:12px;">Cancel Edit</a>
+                <a href="<?= app_url('admin/inventory.php') ?>" class="admin-cancel-link">Cancel Edit</a>
             <?php endif; ?>
         </p>
     </form>
@@ -211,7 +211,7 @@ if ($stmt) {
                                 <img
                                     src="<?= htmlspecialchars(app_url($product['image_path']), ENT_QUOTES, 'UTF-8') ?>"
                                     alt="<?= htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8') ?>"
-                                    style="width:60px; height:60px; object-fit:cover; border-radius:8px;"
+                                    class="admin-product-thumb"
                                 >
                             <?php else: ?>
                                 No image
@@ -229,7 +229,6 @@ if ($stmt) {
                                 method="post"
                                 action="<?= app_url('admin/process-inventory.php') ?>"
                                 class="inline-form"
-                                style="display:inline-block; margin-left:8px;"
                             >
                                 <input type="hidden" name="action" value="toggle_product_status">
                                 <input type="hidden" name="product_id" value="<?= (int) $product['id'] ?>">
@@ -242,7 +241,6 @@ if ($stmt) {
                                 method="post"
                                 action="<?= app_url('admin/process-inventory.php') ?>"
                                 class="inline-form"
-                                style="display:inline-block; margin-left:8px;"
                                 onsubmit="return confirm('Deactivate this product?');"
                             >
                                 <input type="hidden" name="action" value="delete_product">

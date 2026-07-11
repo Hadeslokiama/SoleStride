@@ -91,60 +91,58 @@ if ($logged_in) {
 }
 ?>
 
-<main class="site-main">
-    <div class="cart-container" style="padding: 20px;">
+<section class="cart-container">
         <h1>Your Shopping Cart</h1>
         <?php if (!$logged_in): ?>
             <p>Please <a href="<?= app_url('auth/login.php') ?>">login</a> to view or track items assigned to your cart profile.</p>
         <?php elseif (!empty($items)): ?>
-            <table class="admin-table" style="width:100%; border-collapse: collapse; margin-top: 20px;">
+            <table class="admin-table cart-table">
                 <thead>
-                    <tr style="border-bottom: 2px solid #ccc; text-align: left;">
-                        <th style="padding: 10px;">Product</th>
-                        <th style="padding: 10px;">Price</th>
-                        <th style="padding: 10px;">Quantity</th>
-                        <th style="padding: 10px;">Subtotal</th>
-                        <th style="padding: 10px;">Action</th>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($items as $item): ?>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 10px; display: flex; align-items: center; gap: 15px;">
-                                <img src="<?php echo htmlspecialchars(app_url($item['image_path'])); ?>" width="50" style="height:auto;" alt="">
+                        <tr>
+                            <td class="cart-product-cell">
+                                <img src="<?php echo htmlspecialchars(app_url($item['image_path'])); ?>" alt="">
                                 <span><?php echo htmlspecialchars($item['name']); ?></span>
                             </td>
-                            <td style="padding: 10px;">$<?php echo number_format($item['price'], 2); ?></td>
-                            <td style="padding: 10px;">
-                                <form action="<?php echo app_url('cart.php'); ?>" method="POST" style="display:inline-flex; gap: 5px;">
+                            <td>$<?php echo number_format($item['price'], 2); ?></td>
+                            <td>
+                                <form action="<?php echo app_url('cart.php'); ?>" method="POST" class="inline-form">
                                     <input type="hidden" name="action" value="update">
                                     <input type="hidden" name="product_id" value="<?php echo (int)$item['product_id']; ?>">
-                                    <input type="number" name="quantity" value="<?php echo (int)$item['quantity']; ?>" min="1" style="width:60px; padding: 4px;">
-                                    <button type="submit" class="btn btn-secondary" style="padding: 4px 8px;">Update</button>
+                                    <input type="number" name="quantity" value="<?php echo (int)$item['quantity']; ?>" min="1" class="quantity-input">
+                                    <button type="submit" class="btn btn-secondary btn-sm">Update</button>
                                 </form>
                             </td>
-                            <td style="padding: 10px;">$<?php echo number_format($item['subtotal'], 2); ?></td>
-                            <td style="padding: 10px;">
-                                <form action="<?php echo app_url('cart.php'); ?>" method="POST" style="display:inline;">
+                            <td>$<?php echo number_format($item['subtotal'], 2); ?></td>
+                            <td>
+                                <form action="<?php echo app_url('cart.php'); ?>" method="POST">
                                     <input type="hidden" name="action" value="remove">
                                     <input type="hidden" name="product_id" value="<?php echo (int)$item['product_id']; ?>">
-                                    <button type="submit" class="btn btn-danger" style="padding: 4px 8px; background: red; color: white; border: none; cursor: pointer;">Remove</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
                                 </form>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            
-            <div class="cart-summary" style="margin-top: 30px; text-align: right;">
+
+            <div class="cart-summary">
                 <h3>Total Amount: $<?php echo number_format($cart_total, 2); ?></h3>
-                <a href="<?= app_url('checkout.php') ?>" class="btn btn-primary" style="display: inline-block; padding: 12px 24px; margin-top: 10px; text-decoration: none;">Proceed to Checkout</a>
+                <a href="<?= app_url('checkout.php') ?>" class="btn btn-primary">Proceed to Checkout</a>
             </div>
         <?php else: ?>
-            <p>Your cart layout is currently empty. <a href="<?= app_url('index.php') ?>">Browse Products</a></p>
+            <p class="empty-state">Your cart layout is currently empty. <a href="<?= app_url('index.php') ?>">Browse Products</a></p>
         <?php endif; ?>
-    </div>
-</main>
+</section>
 
 <?php
 require_once 'includes/footer.php';
